@@ -25,6 +25,6 @@ public class OnCallController {
 
         Calendar calendar = new Calendar(date);
         Map<Date, Worker> assignment = workers.assignment(calendar);
-        System.out.println(assignment);
+        outputView.printWorkerInfos(assignment);
     }
 }

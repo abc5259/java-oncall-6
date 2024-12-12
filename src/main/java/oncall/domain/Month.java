@@ -34,4 +34,8 @@ public enum Month {
     public boolean isBelongToDayInMonth(int dayInMonth) {
         return dayInMonth <= lastDayInMonth;
     }
+
+    public int getSymbol() {
+        return symbol;
+    }
 }

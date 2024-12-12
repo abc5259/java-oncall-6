@@ -43,4 +43,8 @@ public enum Day {
     public boolean isDayOff() {
         return this == SAT || this == SUN;
     }
+
+    public String getName() {
+        return name;
+    }
 }

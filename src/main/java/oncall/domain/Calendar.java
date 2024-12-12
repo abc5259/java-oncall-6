@@ -1,6 +1,7 @@
 package oncall.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Calendar {
@@ -14,5 +15,9 @@ public class Calendar {
             startDate = startDate.nextDate();
         }
         this.dates = dates;
+    }
+
+    public List<Date> getDates() {
+        return Collections.unmodifiableList(dates);
     }
 }

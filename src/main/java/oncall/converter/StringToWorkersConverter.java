@@ -1,14 +1,14 @@
 package oncall.converter;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import oncall.domain.Worker;
 
-public class StringToWorkersConverter implements Converter<String, Queue<Worker>> {
+public class StringToWorkersConverter implements Converter<String, Deque<Worker>> {
     @Override
-    public Queue<Worker> convert(String source) {
+    public Deque<Worker> convert(String source) {
         String[] workNames = source.split(",");
-        Queue<Worker> workerQueue = new LinkedList<>();
+        Deque<Worker> workerQueue = new ArrayDeque<>();
         for (String name : workNames) {
             workerQueue.offer(new Worker(name));
         }

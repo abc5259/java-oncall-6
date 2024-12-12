@@ -1,8 +1,7 @@
 package oncall.controller;
 
-import java.util.Queue;
+import java.util.Deque;
 import oncall.converter.StringToDateConverter;
-import oncall.converter.StringToWeekdayWorkersConverter;
 import oncall.converter.StringToWorkersConverter;
 import oncall.domain.Date;
 import oncall.domain.DayOffWorkers;
@@ -28,29 +27,12 @@ public class IteratorInputHandler {
         );
     }
 
-    public WeekdayWorkers inputWeekdayWorkers() {
-        return iteratorInputTemplate.execute(
-                inputView::inputWorkdayWorkers,
-                new StringToWeekdayWorkersConverter()
-        );
-    }
-
-    public DayOffWorkers inputDayOffWorkers(WeekdayWorkers weekdayWorkers) {
-        return iteratorInputTemplate.execute(
-                inputView::inputDayOffWorkers,
-                (value) -> {
-                    Queue<Worker> workers = new StringToWorkersConverter().convert(value);
-                    return new DayOffWorkers(weekdayWorkers, workers);
-                }
-        );
-    }
-
     public Workers inputWorkers() {
         return iteratorInputTemplate.execute(
                 inputView::inputWorkdayWorkers,
                 value -> {
                     StringToWorkersConverter stringToWorkersConverter = new StringToWorkersConverter();
-                    Queue<Worker> workers = stringToWorkersConverter.convert(value);
+                    Deque<Worker> workers = stringToWorkersConverter.convert(value);
                     WeekdayWorkers weekdayWorkers = new WeekdayWorkers(workers);
 
                     String dayOffWorkerNames = inputView.inputDayOffWorkers();

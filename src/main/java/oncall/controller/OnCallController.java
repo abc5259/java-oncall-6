@@ -1,8 +1,10 @@
 package oncall.controller;
 
 
+import java.util.Map;
 import oncall.domain.Calendar;
 import oncall.domain.Date;
+import oncall.domain.Worker;
 import oncall.domain.Workers;
 import oncall.view.OutputView;
 
@@ -22,5 +24,7 @@ public class OnCallController {
         Workers workers = iteratorInputHandler.inputWorkers();
 
         Calendar calendar = new Calendar(date);
+        Map<Date, Worker> assignment = workers.assignment(calendar);
+        System.out.println(assignment);
     }
 }

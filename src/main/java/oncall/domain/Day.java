@@ -39,4 +39,8 @@ public enum Day {
         }
         return MON;
     }
+
+    public boolean isDayOff() {
+        return this == SAT || this == SUN;
+    }
 }

@@ -1,7 +1,9 @@
 package oncall.controller;
 
 import oncall.converter.StringToDateConverter;
+import oncall.converter.StringToWeekdayWorkersConverter;
 import oncall.domain.Date;
+import oncall.domain.WeekdayWorkers;
 import oncall.view.InputView;
 
 public class IteratorInputHandler {
@@ -18,6 +20,13 @@ public class IteratorInputHandler {
         return iteratorInputTemplate.execute(
                 inputView::inputWorkDay,
                 new StringToDateConverter()
+        );
+    }
+
+    public WeekdayWorkers inputWeekdayWorkers() {
+        return iteratorInputTemplate.execute(
+                inputView::inputWorkdayWorkers,
+                new StringToWeekdayWorkersConverter()
         );
     }
 }

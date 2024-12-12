@@ -16,4 +16,8 @@ public record Date(
     public boolean isDayOff() {
         return day.isDayOff() || DayOff.contains(month, dayInMonth);
     }
+
+    public boolean isWeekdayDayOff() {
+        return !day.isDayOff() && DayOff.contains(month, dayInMonth);
+    }
 }

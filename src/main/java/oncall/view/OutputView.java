@@ -16,11 +16,22 @@ public class OutputView {
         System.out.println();
         workerInfos.forEach(
                 (date, worker) ->
+                {
+                    if (date.isWeekdayDayOff()) {
                         System.out.printf(
-                                "%d월 %d일 %s %s%n",
+                                "%d월 %d일 %s(휴일) %s%n",
                                 date.month().getSymbol(),
                                 date.dayInMonth(),
                                 date.day().getName(),
-                                worker.getName()));
+                                worker.getName());
+                        return;
+                    }
+                    System.out.printf(
+                            "%d월 %d일 %s %s%n",
+                            date.month().getSymbol(),
+                            date.dayInMonth(),
+                            date.day().getName(),
+                            worker.getName());
+                });
     }
 }

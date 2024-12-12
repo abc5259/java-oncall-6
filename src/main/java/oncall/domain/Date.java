@@ -10,4 +10,12 @@ public record Date(
             throw new IllegalArgumentException("잘못된 날짜입니다.");
         }
     }
+
+    public Date nextDate() {
+        return new Date(month, dayInMonth + 1, day.nextDay());
+    }
+
+    public boolean isValidDayInMonth() {
+        return month.isBelongToDayInMonth(dayInMonth);
+    }
 }

@@ -1,6 +1,7 @@
 package oncall.controller;
 
 
+import oncall.domain.Calendar;
 import oncall.domain.Date;
 import oncall.view.OutputView;
 
@@ -17,5 +18,6 @@ public class OnCallController {
 
     public void process() {
         Date date = iteratorInputHandler.inputFirstWorkDays();
+        Calendar calendar = new Calendar(date);
     }
 }

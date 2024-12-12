@@ -17,4 +17,26 @@ public enum Day {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 요일 이름입니다."));
     }
+
+    public Day nextDay() {
+        if (this == MON) {
+            return THU;
+        }
+        if (this == THU) {
+            return WES;
+        }
+        if (this == WES) {
+            return TUR;
+        }
+        if (this == TUR) {
+            return FRI;
+        }
+        if (this == FRI) {
+            return SAT;
+        }
+        if (this == SAT) {
+            return SUN;
+        }
+        return MON;
+    }
 }

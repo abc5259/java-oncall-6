@@ -19,13 +19,13 @@ public class Workers {
         Map<Date, Worker> workerInfos = new LinkedHashMap<>();
         Worker prevWorker = null;
         for (Date date : dates) {
-            if (prevWorker == nextWorker(date)) {
+            if (prevWorker != null && prevWorker.equals(nextWorker(date))) {
                 changeSequenceWorker(date);
             }
 
             Worker worker = pollWorker(date);
-            prevWorker = worker;
             workerInfos.put(date, worker);
+            prevWorker = worker;
         }
 
         return workerInfos;

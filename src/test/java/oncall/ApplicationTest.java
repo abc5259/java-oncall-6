@@ -71,6 +71,7 @@ class ApplicationTest extends NsTest {
             );
         });
     }
+    
 
     @Override
     protected void runMain() {

@@ -21,8 +21,8 @@ public class DayOffWorkers {
     }
 
     public Worker pollWorker() {
-        Worker worker = workers.poll();
-        workers.offer(worker);
+        Worker worker = workers.pollFirst();
+        workers.offerLast(worker);
         return worker;
     }
 
@@ -33,7 +33,7 @@ public class DayOffWorkers {
     public void changeSequence() {
         Worker worker1 = workers.pollFirst();
         Worker worker2 = workers.pollFirst();
-        workers.offerFirst(worker2);
         workers.offerFirst(worker1);
+        workers.offerFirst(worker2);
     }
 }

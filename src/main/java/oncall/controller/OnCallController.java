@@ -3,7 +3,7 @@ package oncall.controller;
 
 import oncall.domain.Calendar;
 import oncall.domain.Date;
-import oncall.domain.WeekdayWorkers;
+import oncall.domain.Workers;
 import oncall.view.OutputView;
 
 public class OnCallController {
@@ -19,8 +19,8 @@ public class OnCallController {
 
     public void process() {
         Date date = iteratorInputHandler.inputFirstWorkDays();
-        WeekdayWorkers weekdayWorkers = iteratorInputHandler.inputWeekdayWorkers();
-        
+        Workers workers = iteratorInputHandler.inputWorkers();
+
         Calendar calendar = new Calendar(date);
     }
 }

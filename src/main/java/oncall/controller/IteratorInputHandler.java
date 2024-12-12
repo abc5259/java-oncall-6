@@ -1,5 +1,7 @@
 package oncall.controller;
 
+import oncall.converter.StringToDateConverter;
+import oncall.domain.Date;
 import oncall.view.InputView;
 
 public class IteratorInputHandler {
@@ -12,5 +14,10 @@ public class IteratorInputHandler {
         this.iteratorInputTemplate = iteratorInputTemplate;
     }
 
-
+    public Date inputFirstWorkDays() {
+        return iteratorInputTemplate.execute(
+                inputView::inputWorkDay,
+                new StringToDateConverter()
+        );
+    }
 }
